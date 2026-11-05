@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" width="128" height="128"
+     role="img" aria-label="Pelagos: a trident above a parity-check lattice, on the open sea">
+  <title>Pelagos</title>
+  <desc>Triton's trident above the waterline; below it, the sparse parity-check
+        lattice of a qLDPC code descending into the open sea.</desc>
+
+  <!-- ABOVE THE WATERLINE: the trident, clear of everything else -->
+  <g stroke="#99e9f2" fill="none" stroke-width="4.4" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M64 14 L64 96"/>
+    <path d="M44 40 L44 22 M84 40 L84 22"/>
+    <path d="M44 40 q20 18 40 0"/>
+  </g>
+  <g fill="#ffa94d">
+    <circle cx="44" cy="20" r="3.2"/>
+    <circle cx="64" cy="12" r="3.2"/>
+    <circle cx="84" cy="20" r="3.2"/>
+  </g>
+
+  <!-- THE WATERLINE: two calm strokes, the trident passing through -->
+  <g fill="none" stroke-linecap="round">
+    <path stroke="#3bc9db"  d="M10 68 q13.5 -7 27 0 t27 0 t27 0 t27 0" stroke-width="3.4" opacity=".95"/>
+    <path stroke="#4dabf7" d="M10 79 q13.5 -7 27 0 t27 0 t27 0 t27 0" stroke-width="3" opacity=".6"/>
+  </g>
+
+  <!-- BELOW: a real bipartite lattice — variables (circles) and checks (squares),
+       degree-3 like the bicycle-bivariate codes this decoder targets -->
+  <g stroke="#3bc9db" fill="none" stroke-width="1.5" opacity=".8">
+    <path d="M64 96 L46 96 M46 96 L30 110 M46 96 L54 110 M46 96 L74 110
+             M82 96 L54 110 M82 96 L74 110 M64 96 L82 96 M82 96 L98 110"/>
+  </g>
+  <g fill="#99e9f2">
+    <circle cx="30" cy="110" r="4"/>
+    <circle cx="54" cy="110" r="4"/>
+    <circle cx="74" cy="110" r="4"/>
+    <circle cx="98" cy="110" r="4"/>
+  </g>
+  <g fill="#ffa94d">
+    <rect x="41.6" y="91.6" width="8.8" height="8.8" rx="1.4"/>
+    <rect x="77.6" y="91.6" width="8.8" height="8.8" rx="1.4"/>
+  </g>
+</svg>

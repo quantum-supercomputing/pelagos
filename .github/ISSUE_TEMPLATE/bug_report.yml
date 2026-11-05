@@ -1,0 +1,42 @@
+name: Bug report
+description: Something does not work as documented, or gives wrong results.
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for reporting! Please report security vulnerabilities privately; see SECURITY.md.
+  - type: textarea
+    id: what-happened
+    attributes:
+      label: What happened?
+      description: What you expected, what happened instead, and the full error message if there is one.
+    validations:
+      required: true
+  - type: textarea
+    id: reproducer
+    attributes:
+      label: Minimal reproducer
+      description: The smallest code or command that shows the problem.
+      render: python
+    validations:
+      required: true
+  - type: dropdown
+    id: backend
+    attributes:
+      label: GPU backend
+      options:
+        - CUDA (NVIDIA)
+        - ROCm (AMD)
+        - Other / not applicable
+    validations:
+      required: true
+  - type: textarea
+    id: environment
+    attributes:
+      label: Environment
+      description: Paste the output of the command below.
+      value: |
+        python -c "import pelagos, torch, triton, platform; print(platform.platform()); print('python', platform.python_version()); print('torch', torch.__version__, 'cuda', torch.version.cuda, 'hip', torch.version.hip); print('triton', triton.__version__); print('gpu', torch.cuda.get_device_name(0) if torch.cuda.is_available() else None)"
+    validations:
+      required: true

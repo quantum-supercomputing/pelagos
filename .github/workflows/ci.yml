@@ -1,0 +1,57 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  cpu:
+    name: CPU checks (Python ${{ matrix.python-version }})
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        python-version: ["3.11", "3.12", "3.13"]
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install uv
+        uses: astral-sh/setup-uv@v7
+        with:
+          enable-cache: true
+
+      # `import pelagos` pulls in the Triton kernels, which import torch at
+      # module scope, so the import-surface tests need the `gpu` extra even on a
+      # CPU runner. torch installs fine without a GPU; the decode tests then
+      # skip on `torch.cuda.is_available()`.
+      # The stim extra lets the DEM -> check-matrix conversion be tested on CPU. The rust
+      # extra is left out: relay-bp only publishes wheels for some Python versions.
+      - name: Sync (gpu extra for torch; no GPU hardware needed)
+        run: uv sync --extra gpu --extra stim --extra test
+
+      # Syntax errors and undefined names only: the lint rules that catch real bugs.
+      - name: Lint
+        run: uvx ruff check --isolated --select E9,F63,F7,F82 src tests tutorials pelagos_benchmark.py
+
+      # Decode tests and the Rust comparison skip without a GPU; -rs lists what was skipped.
+      - name: Tests (CPU)
+        run: uv run pytest tests/ -v -rs
+
+  build:
+    name: Build wheel
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: astral-sh/setup-uv@v7
+      - run: uv build
+      - run: ls -la dist/
+
+# The GPU lane is intentionally absent here: Triton kernels need a CUDA or
+# ROCm runtime, which the free GitHub-hosted runners do not provide. The
+# numerical gates below are run by a maintainer on a GPU before each release
+# (see "Testing" in README.md), with
+# `uv sync --extra gpu --extra rust --extra stim --extra test`:
+#
+#   uv run pytest tests/test_triton_against_rust.py -v   # bit-exactness vs. the Rust reference
+#   uv run pytest tests/ -q                              # full suite

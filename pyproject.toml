@@ -1,0 +1,92 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "pelagos"
+version = "0.1.0"
+description = "GPU-accelerated Relay-BP decoder for qLDPC codes, implemented in Triton."
+readme = "README.md"
+requires-python = ">=3.11"
+license = { text = "Apache-2.0" }
+authors = [
+    { name = "Dionysios Diamantopoulos", email = "did@zurich.ibm.com" },
+    { name = "Roman Pletka" },
+    { name = "Xulong Tang" },
+    { name = "Yasuko Eckert" },
+]
+keywords = [
+    "relay-bp",
+    "belief propagation",
+    "quantum error correction",
+    "qec",
+    "decoder",
+    "qldpc",
+    "ldpc",
+    "triton",
+    "gpu",
+]
+classifiers = [
+    "Intended Audience :: Developers",
+    "Intended Audience :: Science/Research",
+    "License :: OSI Approved :: Apache Software License",
+    "Operating System :: POSIX :: Linux",
+    "Programming Language :: Python :: 3 :: Only",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Topic :: Scientific/Engineering",
+]
+dependencies = [
+    "numpy",
+    "scipy",
+]
+
+[project.urls]
+Homepage = "https://github.com/quantum-supercomputing/pelagos"
+Documentation = "https://github.com/quantum-supercomputing/pelagos/tree/main/tutorials"
+Issues = "https://github.com/quantum-supercomputing/pelagos/issues"
+Changelog = "https://github.com/quantum-supercomputing/pelagos/blob/main/CHANGELOG.md"
+Paper = "https://ieeexplore.ieee.org/document/11662198"
+
+[project.optional-dependencies]
+gpu = [
+    "torch>=2.12.1",
+    "triton>=2.0.0",
+    "nvidia-ml-py",
+]
+rust = [
+    "relay-bp>=0.0.2",
+]
+stim = [
+    "stim>=1.15",
+    "beliefmatching",
+]
+test = [
+    "pytest",
+]
+# `pelagos_benchmark.py`, the benchmark CLI, does a module-level `import pandas`
+# for its results tables. It is not needed to use the decoder itself, so it lives
+# in its own extra rather than in the core dependencies.
+bench = [
+    "pandas",
+]
+# Dependencies for running the notebooks in tutorials/.
+tutorials = [
+    "pelagos[gpu,stim]",
+    "matplotlib",
+    "jupyterlab",
+]
+all = [
+    "pelagos[gpu,rust,stim,test,bench,tutorials]",
+]
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/pelagos"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]
+
+[tool.uv]
+package = true

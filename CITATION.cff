@@ -1,0 +1,90 @@
+cff-version: 1.2.0
+message: "If you use Pelagos in your research, please cite the paper below."
+title: "Pelagos: GPU-accelerated Relay-BP decoder for qLDPC codes"
+type: software
+license: Apache-2.0
+version: 0.1.0
+repository-code: "https://github.com/quantum-supercomputing/pelagos"
+keywords:
+  - quantum error correction
+  - qLDPC codes
+  - belief propagation
+  - Relay-BP
+  - GPU
+  - Triton
+authors:
+  - family-names: "Diamantopoulos"
+    given-names: "D."
+  - family-names: "von Niederhäusern"
+    given-names: "L."
+  - family-names: "Anghel"
+    given-names: "A. S."
+  - family-names: "Kayi"
+    given-names: "A."
+  - family-names: "Pletka"
+    given-names: "R."
+  - family-names: "Müller"
+    given-names: "T."
+  - family-names: "Papandreou"
+    given-names: "N."
+  - family-names: "Blanusa"
+    given-names: "J."
+  - family-names: "Sarafijanovic"
+    given-names: "S."
+  - family-names: "Gonzalez"
+    given-names: "N. M."
+  - family-names: "Abel"
+    given-names: "F."
+  - family-names: "Hagleitner"
+    given-names: "C."
+  - family-names: "Seelam"
+    given-names: "S."
+  - family-names: "Johnson"
+    given-names: "B."
+  - family-names: "Haas"
+    given-names: "R."
+  - family-names: "Pozidis"
+    given-names: "H."
+preferred-citation:
+  type: conference-paper
+  title: "Pêlagos: An Adaptive GPU Decoder for Error Correction Simulations of Quantum LDPC Codes"
+  collection-title: "2026 IEEE International Conference on Quantum Software (QSW)"
+  publisher:
+    name: "IEEE"
+  year: 2026
+  start: 152
+  end: 165
+  url: "https://ieeexplore.ieee.org/document/11662198"
+  authors:
+    - family-names: "Diamantopoulos"
+      given-names: "D."
+    - family-names: "von Niederhäusern"
+      given-names: "L."
+    - family-names: "Anghel"
+      given-names: "A. S."
+    - family-names: "Kayi"
+      given-names: "A."
+    - family-names: "Pletka"
+      given-names: "R."
+    - family-names: "Müller"
+      given-names: "T."
+    - family-names: "Papandreou"
+      given-names: "N."
+    - family-names: "Blanusa"
+      given-names: "J."
+    - family-names: "Sarafijanovic"
+      given-names: "S."
+    - family-names: "Gonzalez"
+      given-names: "N. M."
+    - family-names: "Abel"
+      given-names: "F."
+    - family-names: "Hagleitner"
+      given-names: "C."
+    - family-names: "Seelam"
+      given-names: "S."
+    - family-names: "Johnson"
+      given-names: "B."
+    - family-names: "Haas"
+      given-names: "R."
+    - family-names: "Pozidis"
+      given-names: "H."
