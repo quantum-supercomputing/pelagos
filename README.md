@@ -1,4 +1,5 @@
 <!-- Modified 2026 by AMD to document process-per-GPU execution. -->
+<!-- Modified 2026 by AMD to link the multi-GPU tutorial. -->
 
 <p align="center">
   <picture>
@@ -140,6 +141,10 @@ compares plain BP with Relay-BP, and measures throughput:
 uv sync --extra tutorials            # or: pip install -e ".[tutorials]"
 uv run jupyter lab tutorials/
 ```
+
+Continue with [Tutorial 2: multi-GPU quickstart](tutorials/02_multi_gpu_quickstart.ipynb)
+to decode on up to eight GPUs using the process backend, check decoding
+quality, and compare GPU counts with 1,024 shots per GPU.
 
 ## Benchmarking
 
