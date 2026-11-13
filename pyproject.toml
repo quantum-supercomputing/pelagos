@@ -3,7 +3,7 @@ requires = ["hatchling"]
 build-backend = "hatchling.build"
 
 [project]
-name = "pelagos"
+name = "pelagos-decoder"
 version = "0.1.0"
 description = "GPU-accelerated Relay-BP decoder for qLDPC codes, implemented in Triton."
 readme = "README.md"
@@ -73,12 +73,12 @@ bench = [
 ]
 # Dependencies for running the notebooks in tutorials/.
 tutorials = [
-    "pelagos[gpu,stim]",
+    "pelagos-decoder[gpu,stim]",
     "matplotlib",
     "jupyterlab",
 ]
 all = [
-    "pelagos[gpu,rust,stim,test,bench,tutorials]",
+    "pelagos-decoder[gpu,rust,stim,test,bench,tutorials]",
 ]
 
 [tool.hatch.build.targets.wheel]

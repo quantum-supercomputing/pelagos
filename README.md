@@ -46,9 +46,9 @@ accordingly.
 ## Install
 
 ```bash
-pip install pelagos[gpu]           # decoder + torch/triton
-pip install pelagos[gpu,rust]      # + the Rust CPU reference, side by side
-pip install pelagos[gpu,stim]      # + stim / DEM support
+pip install pelagos-decoder[gpu]           # decoder + torch/triton
+pip install pelagos-decoder[gpu,rust]      # + the Rust CPU reference, side by side
+pip install pelagos-decoder[gpu,stim]      # + stim / DEM support
 ```
 
 Development uses [uv](https://docs.astral.sh/uv/):
@@ -127,7 +127,7 @@ decoder = RelayBPDecoder(H_csr=cm.check_matrix, error_priors=cm.error_priors, al
 ```
 
 Note the field is `cm.error_priors`, not `cm.priors`. This path requires
-the `stim` extra (`pip install pelagos[stim]`), which pulls in
+the `stim` extra (`pip install pelagos-decoder[stim]`), which pulls in
 `beliefmatching`.
 
 ## Tutorials
@@ -155,7 +155,7 @@ important ones are `--backend {rust,triton}`, `--circuit`, `--basis`,
 needs `pandas`, which ships in the `bench` extra:
 
 ```bash
-pip install "pelagos[gpu,bench]"     # or: uv sync --extra gpu --extra bench
+pip install "pelagos-decoder[gpu,bench]"     # or: uv sync --extra gpu --extra bench
 ```
 
 ```bash

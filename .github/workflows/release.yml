@@ -3,7 +3,7 @@ name: Release
 # Publishes to PyPI when a GitHub release is published (tag it vX.Y.Z to match the version
 # in pyproject.toml). Uses PyPI trusted publishing, so no API token is stored in the repo.
 # One-time setup: on PyPI, add this repository and workflow (release.yml) as a trusted
-# publisher for the "pelagos" project, using the "pypi" environment.
+# publisher for the "pelagos-decoder" project, using the "pypi" environment.
 
 on:
   release:
