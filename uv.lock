@@ -1,5 +1,5 @@
 version = 1
-revision = 3
+revision = 5
 requires-python = ">=3.11"
 resolution-markers = [
     "python_full_version >= '3.14' and sys_platform == 'win32'",
@@ -1962,7 +1962,7 @@ wheels = [
 ]
 
 [[package]]
-name = "pelagos"
+name = "pelagos-decoder"
 version = "0.1.0"
 source = { editable = "." }
 dependencies = [
@@ -2021,8 +2021,8 @@ requires-dist = [
     { name = "numpy" },
     { name = "nvidia-ml-py", marker = "extra == 'gpu'" },
     { name = "pandas", marker = "extra == 'bench'" },
-    { name = "pelagos", extras = ["gpu", "rust", "stim", "test", "bench", "tutorials"], marker = "extra == 'all'" },
-    { name = "pelagos", extras = ["gpu", "stim"], marker = "extra == 'tutorials'" },
+    { name = "pelagos-decoder", extras = ["gpu", "rust", "stim", "test", "bench", "tutorials"], marker = "extra == 'all'" },
+    { name = "pelagos-decoder", extras = ["gpu", "stim"], marker = "extra == 'tutorials'" },
     { name = "pytest", marker = "extra == 'test'" },
     { name = "relay-bp", marker = "extra == 'rust'", specifier = ">=0.0.2" },
     { name = "scipy" },
